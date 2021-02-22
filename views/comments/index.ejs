@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css\showComments.css">
+</head>
+
+<body>
+    <h4>List of Comments</h4>
+    <ul>
+        <% for( let cmnt of comments ) { %>
+            <li>
+                <p>
+                    <%= cmnt.text %> <b> - <%= cmnt.name %></b>
+                </p>
+
+            </li>
+            <% } %>
+    </ul>
+    <h3>Make a new comment</h3>
+    <form action="/comments" method="post">
+        <label for="newComment">Comment</label>
+        <br>
+        <textarea name="newComment" id="newComment" cols="30" rows="5"></textarea>
+        <br>
+        <label for="user">User</label>
+        <br>
+        <input type="text" name="user" id="user">
+        <br>
+        <button type="submit">Comment</button>
+    </form>
+
+</body>
+
+</html>
