@@ -6,21 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css\showComments.css">
+    <link rel="stylesheet" href="/css/showComments.css">
 </head>
 
 <body>
     <h4>List of Comments</h4>
-    <ul>
+    <ol>
         <% for( let cmnt of comments ) { %>
-            <li>
+            <li class="cmnt">
                 <p>
                     <%= cmnt.text %> <b> - <%= cmnt.name %></b>
+                        <a href="/comments/<%=cmnt.id%>/edit">Edit</a>
+                        <a href="/comments/<%=cmnt.id%>/delete">Delete</a>
                 </p>
 
             </li>
             <% } %>
-    </ul>
+    </ol>
     <h3>Make a new comment</h3>
     <form action="/comments" method="post">
         <label for="newComment">Comment</label>
@@ -33,7 +35,7 @@
         <br>
         <button type="submit">Comment</button>
     </form>
-
 </body>
+<script src="\js\support.js"></script>
 
 </html>
