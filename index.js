@@ -26,7 +26,7 @@ const comments = [
 ]
 // functionality
 app.get('/comments', (req, res) => {
-    res.render('E:/Web_dev_BootCamp/Restfull_Routes/RestFullComments/views/comments/index.ejs', { comments })
+    res.render('comments/index.ejs', { comments })
 })
 app.post('/comments', (req, res) => {
 
@@ -36,13 +36,13 @@ app.post('/comments', (req, res) => {
         text: req.body.newComment,
     })
     console.log(comments)
-    res.redirect('http://localhost:3000/comments/');
-    //res.render('E:/Web_dev_BootCamp/Restfull_Routes/RestFullComments/views/comments/index.ejs', { comments })
+    res.redirect('comments');
+    //res.render(comments/index.ejs', { comments })
 })
 app.get('/comments/:id/edit', (req, res) => {
     const { id } = req.params;
     const foundComment = comments.find(c => c.id == id)
-    res.render('E:/Web_dev_BootCamp/Restfull_Routes/RestFullComments/views/comments/edit.ejs', { PrvText: foundComment.text, id: id })
+    res.render('comments/edit.ejs', { PrvText: foundComment.text, id: id })
 
 })
 app.patch('/comments/:id', (req, res) => {
@@ -50,12 +50,12 @@ app.patch('/comments/:id', (req, res) => {
     const newComment = req.body.EditComment
     const foundComment = comments.find(c => c.id == id)
     foundComment.text = newComment;
-    res.redirect('http://localhost:3000/comments/');
+    res.redirect('/comments');
 })
 app.get('/comments/:id/delete', (req, res) => {
     const { id } = req.params;
     const foundComment = comments.find(c => c.id == id)
     comments.splice(comments.indexOf(foundComment), 1)
-    res.render('E:/Web_dev_BootCamp/Restfull_Routes/RestFullComments/views/comments/index.ejs', { comments })
+    res.render('/comments/index.ejs', { comments })
 
 }) 
