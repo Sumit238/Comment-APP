@@ -11,7 +11,7 @@ const path = require('path');
 const methodOverride = require('method-override')
 const app = express()
 const { v4: uuidv4 } = require('uuid');
-const port = 3000
+const port = 80
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -56,6 +56,6 @@ app.get('/comments/:id/delete', (req, res) => {
     const { id } = req.params;
     const foundComment = comments.find(c => c.id == id)
     comments.splice(comments.indexOf(foundComment), 1)
-    res.render('/comments/index.ejs', { comments })
+    res.redirect('/comments');
 
-}) 
+})
