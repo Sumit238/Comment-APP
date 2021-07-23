@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'comment-APP'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_3e13fb4b9439495c897b764f036be8bb }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0fcb017d62a140579e67f7b4cf2d086c }}
         package: .
