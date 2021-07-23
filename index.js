@@ -11,7 +11,7 @@ const path = require('path');
 const methodOverride = require('method-override')
 const app = express()
 const { v4: uuidv4 } = require('uuid');
-const port = 80
+const port = process.env.PORT || 3000
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
